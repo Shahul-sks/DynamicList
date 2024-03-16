@@ -1,0 +1,62 @@
+﻿@model DynamicList.Models.Car
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateData" asp-controller="Car" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="carno" class="control-label"></label>
+                <input asp-for="carno" class="form-control" />
+                <span asp-validation-for="carno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="carname" class="control-label"></label>
+                <input asp-for="carname" class="form-control" />
+                <span asp-validation-for="carname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="caryear" class="control-label"></label>
+                <input asp-for="caryear" class="form-control" />
+                <span asp-validation-for="caryear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="carpic" class="control-label"></label>
+                <input asp-for="carpic" type="file" class="form-control" />
+                <span asp-validation-for="carpic" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

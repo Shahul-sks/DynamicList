@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/6.7.0/default/default-ocean-blue.css" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2023.2.829/js/kendo.all.min.js"></script>
+
+
+
+    @*  <link href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-main.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://kendo.cdn.telerik.com/2023.3.1114/js/kendo.all.min.js"></script>
+    *@
+</head>
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<h1> List Of Car </h1>
+
+
+
+
+<div id="listView"></div>
+
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="product-view k-widget">
+        <dl>
+           <dt>Carrrr No</dt>
+            <dd>#:carno#</dd>
+            <dt>Car Name</dt>
+            <dd>#:carname#</dd>
+            <dt>Manufacture Year</dt>
+            <dd>#:caryear#</dd>
+            <dt>Photos</dt>
+            <dd><img src="data:image/jpeg;base64,#:carpic#" alt="Car Image" /></dd>
+
+        </dl>
+        <div class="edit-buttons">
+            <a role="button" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md k-edit-button" href="\\#"> #= kendo.ui.icon({ icon: 'pencil' }) # </a>
+            <a role="button" class="k-button k-button-solid-base k-button-solid k-button-md k-rounded-md k-delete-button" href="\\#">#= kendo.ui.icon({ icon: 'x' }) #</a>
+        </div>
+    </div>
+</script>
+
+
+
+
+
+<script>
+
+
+    // function arrayBufferToBase64(buffer) {
+    //     var binary = "";
+    //     var bytes = new Uint8Array(buffer);
+    //     var len = bytes.byteLength;
+    //     for (var i = 0; i < len; i++) {
+    //         binary += String.fromCharCode(bytes[i]);
+    //     }
+    //     return window.btoa(binary);
+    // }
+
+
+    dataSource = new kendo.data.DataSource({
+        transport: {
+            read: {
+                url: "/Car/Getcar",
+                dataType: "json"
+            },
+
+        },
+        batch: true,
+        pageSize: 4,
+        schema: {
+            model: {
+                id: "id",
+                fields: {
+                    carno: { editable: false, nullable: true },
+                    carname: { type: "string" },
+                    caryear: { type: "number" },
+                    carpic: { type: "array" }
+                }
+            }
+        }
+    });
+
+    var listView = $("#listView").kendoListView({
+        dataSource: dataSource,
+        template: kendo.template($("#template").html()),
+        //editTemplate: kendo.template($("#editTemplate").html()),
+        pageable: true
+    }).data("kendoListView");
+
+    // $("#add-new-button").click(function (e) {
+    //     listView.add();
+    //e.preventDefault();
+    // });
+
+    // kendo.ui.icon($(".add"), { icon: 'plus' });
+
+</script>

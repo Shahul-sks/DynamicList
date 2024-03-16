@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AG-Grid with jQuery</title>
+
+    <!-- AG-Grid CSS (Replace <version> with the desired version number) -->
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27.0.1/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27.0.1/styles/ag-theme-alpine.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- AG-Grid (Replace <version> with the desired version number) -->
+    <script src="https://unpkg.com/ag-grid-community@27.0.1/dist/ag-grid-community.min.noStyle.js"></script>
+</head>
+<body>
+
+    <div id="myGrid" style="height: 400px; width: 100%;" class="ag-theme-alpine"></div>
+
+    <script>
+        // Your AG-Grid configuration goes here
+        $(document).ready(function () {
+            var gridOptions = {
+                columnDefs: [
+                    { headerName: "Make", field: "make" },
+                    { headerName: "Model", field: "model" },
+                    { headerName: "Year", field: "year" }
+                ],
+                rowData: [
+                    { make: "Toyota", model: "Celica", year: 2000 },
+                    { make: "Ford", model: "Mondeo", year: 2001 },
+                    { make: "Porsche", model: "Boxster", year: 2002 }
+                ]
+            };
+
+            // setup the grid after the page has finished loading
+            new agGrid.Grid(document.getElementById('myGrid'), gridOptions);
+        });
+    </script>
+
+</body>
+</html>

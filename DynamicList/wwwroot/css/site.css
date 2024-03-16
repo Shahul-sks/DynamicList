@@ -1,0 +1,102 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.gender {
+    padding-left: 40px;
+    margin-bottom: 20px;
+}
+
+.text {
+    background-color: lightblue;
+    border: 3px;
+    border-radius: 5px;
+}
+
+.button {
+    border-radius: 10px;
+    background-color: #faa735;
+    font-size: 16px;
+    margin-left: 10%;
+    width: 20%;
+    height: 50px;
+    margin-top: 5%;
+    margin-left: 40%;
+}
+
+.topp {
+    background-color: #faa735;
+    height: 60px;
+    margin-bottom: 2%;
+}
+
+label.error {
+    font-weight: 700;
+    color: red;
+}
+
+#text1 {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+.home {
+    margin-bottom: 60px;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/010/008/086/non_2x/background-dimension-3d-graphic-message-board-for-text-and-message-design-line-shadow-for-modern-web-design-free-vector.jpg");
+    background-repeat: no-repeat;
+}
+
+.card {
+    width: 50%;
+    height: 95%;
+    background-color: #e6e8e7;
+    align-content: center;
+    padding-left: 5%;
+    padding-top: 20%;
+    padding-bottom: 5%;
+    margin-left: 25%;
+    border: 2px solid #000;
+    box-shadow: 10px 10px 8px #444;
+    padding: 8px 12px;
+}
+
+.class {
+    font-size: 100px;
+    font-family: Arial;
+    align-content: center;
+    margin-left: auto;
+}
+
+.form-box.form-check-input text {
+    border-color: red;
+}
+
+.span {
+    color: red;
+}
+
+.input-field error {
+    border-color: red;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/010/008/086/non_2x/background-dimension-3d-graphic-message-board-for-text-and-message-design-line-shadow-for-modern-web-design-free-vector.jpg");
+    background-repeat: no-repeat;
+}
